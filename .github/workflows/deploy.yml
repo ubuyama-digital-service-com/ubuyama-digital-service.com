@@ -11,7 +11,7 @@ jobs:
     - name: Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: ./  # ロリポップの公開フォルダ直下なら ./ でOK
+        server: ${{ secrets.FTP_LOLIPOPSERVER }}
+        username: ${{ secrets.FTP_LOLIPOPUSERNAME }}
+        password: ${{ secrets.FTP_LOLIPOPPASSWORD }}
+        server-dir: ${{ secrets.FTP_LOLIPOPSERVER_DIR }}
