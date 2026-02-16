@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('uds-hero-ubuyama-bg.png');
+    background-size: cover;
+    /* ...以下、昨日のデザインコードを貼り付け... */
+}
