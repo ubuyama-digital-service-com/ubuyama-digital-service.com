@@ -61,19 +61,44 @@ header {
     text-align: center;
 }
 
-/* ヒーローセクション全体（背景画像） */
+/* ヒーローセクション（または背景を適用している要素）の修正 */
 .hero-section {
     min-height: 100vh;
+    /* 画面いっぱいの高さを確保 */
+    width: 100%;
+
+    /* 背景画像の設定 */
     background-image: url("../../uds-hero-ubuyama-bg.png");
-    /* パスは適宜調整 */
+    background-size: cover;
+    /* 画像を隙間なく敷き詰める */
+    background-position: center;
+    /* 常に中央に配置 */
+    background-repeat: no-repeat;
+    /* 【重要】画像が切れても繰り返さない */
+    background-attachment: fixed;
+    /* 【重要】スクロールしても背景を固定する */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5%;
+    box-sizing: border-box;
+    /* パディングで横幅がズレるのを防ぐ */
+}
+
+/* ヒーローセクション全体（背景画像） */
+/*.hero-section {
+    min-height: 100vh;
+    background-image: url("../../uds-hero-ubuyama-bg.png");
+    /* パスは適宜調整 /
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
-    /* 上下中央 */
+    /* 上下中央 /
     justify-content: center;
     padding: 0 5%;
-}
+}*/
 
 /* 左右を並べるコンテナ */
 .hero-container {
