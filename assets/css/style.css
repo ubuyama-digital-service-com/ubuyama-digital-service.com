@@ -114,10 +114,59 @@ header {
     transform: translateX(5px);
 }
 
-.contact-special {
+/* 右側：テキストコンテンツのエリア */
+.hero-text-content {
+    color: #fff;
+    /* 1. 全体に薄い「すりガラス」の背景を敷く */
+    background: rgba(0, 0, 0, 0.2);
+    /* 黒を20%だけ敷いて文字を浮かせる */
+    backdrop-filter: blur(8px);
+    /* 背景を少しぼかす */
+    -webkit-backdrop-filter: blur(8px);
+    /* Safari対応 */
+
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* 繊細な枠線 */
+
+    /* 2. 文字自体に「深い影」をつける */
+    text-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(0, 0, 0, 0.2);
+
+    max-width: 600px;
+}
+
+/* タイトルをさらに強調 */
+.hero-title {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-family: "HG明朝E", serif;
+    /* 3. ほんの少しだけ文字の間隔を広げて高級感を出す */
+    letter-spacing: 0.05em;
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #e0f0ff;
+    /* ほんの少し青みを入れるとデジタル感が出ます */
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    border-left: 3px solid #007bff;
+    /* 左側に青いアクセントライン */
+    padding-left: 20px;
+}
+
+/*.contact-special {
     background: rgba(0, 123, 255, 0.8);
     border-color: #007bff;
-}
+}*/
 
 /* 右側：テキストコンテンツ */
 .hero-text-content {
