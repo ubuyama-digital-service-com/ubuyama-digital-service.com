@@ -2,12 +2,22 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-    color: #333;
+    /* 背景画像を画面全体に固定 */
+    background-image: url("../../uds-hero-ubuyama-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: #fff;
+    /* 全体の基本文字色を白に */
+    font-family: "ヒラギノ角ゴシック ProN W6", sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
-    /* 横揺れ防止 */
-    background-image: url("../../uds-hero-ubuyama-bg.png");
+    /* 1つ目の影（0 1px 3px）で輪郭をくっきりさせ、2つ目の影（0 4px 10px）で柔らかく浮かせます */
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.4),
+        0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* ヘッダー：会社名 */
@@ -19,6 +29,7 @@ header {
     padding: 20px 40px;
     box-sizing: border-box;
     z-index: 10;
+
 }
 
 /* ロゴ画像の調整 */
@@ -41,6 +52,7 @@ header {
     font-size: 1.2rem;
     font-weight: bold;
     letter-spacing: 0.05em;
+
 }
 
 
@@ -59,55 +71,22 @@ header {
     justify-content: center;
     color: white;
     text-align: center;
+
 }
 
-/* ヒーローセクション（または背景を適用している要素）の修正 */
+/* ヒーローセクション：画面全体の枠組み */
 .hero-section {
     min-height: 100vh;
-    /* 画面いっぱいの高さを確保 */
-    width: 100%;
-
-    /* 背景画像の設定 */
-    background-image: url("../../uds-hero-ubuyama-bg.png");
-    background-size: cover;
-    /* 画像を隙間なく敷き詰める */
-    background-position: center;
-    /* 常に中央に配置 */
-    background-repeat: no-repeat;
-    /* 【重要】画像が切れても繰り返さない */
-    background-attachment: fixed;
-    /* 【重要】スクロールしても背景を固定する */
-
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 0 5%;
+    /* 上下中央に配置 */
+    justify-content: flex-start;
+    /* 【重要】中身を左寄せに開始する */
+    padding: 0 10%;
+    /* 左側に適切な余白（ロゴの下あたり）を作る */
     box-sizing: border-box;
-    /* パディングで横幅がズレるのを防ぐ */
-}
-
-/* ヒーローセクション全体（背景画像） */
-/*.hero-section {
-    min-height: 100vh;
-    background-image: url("../../uds-hero-ubuyama-bg.png");
-    /* パスは適宜調整 /
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    /* 上下中央 /
-    justify-content: center;
-    padding: 0 5%;
-}*/
-
-/* 左右を並べるコンテナ */
-.hero-container {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    /* ナビとテキストの間隔 */
-    max-width: 1200px;
-    width: 100%;
+    background: transparent;
+    /* 背景はbodyに任せるので透明 */
 }
 
 /* 左側：ナビゲーション */
@@ -131,6 +110,7 @@ header {
     /* 文字は白に */
     font-size: 1rem;
     transition: all 0.3s ease;
+
 }
 
 .nav-item-small:hover {
@@ -149,7 +129,6 @@ header {
     /* 背景を少しぼかす */
     /*-webkit-backdrop-filter: blur(8px);
     /* Safari対応 */
-
     padding: 40px;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -218,6 +197,8 @@ header {
     line-height: 1.8;
 }
 
+
+
 /* スマホ対応：縦並びにする */
 @media (max-width: 768px) {
     .hero-container {
@@ -231,14 +212,6 @@ header {
         font-size: 2.2rem;
     }
 }
-
-/* style.css の中 /
-.hero-section {
-    /* 「../」でcssフォルダを出て、「../」でassetsフォルダを出る */
-/*background-image: url("../../uds-hero-ubuyama-bg.png");/
-    background-size: cover;
-    background-position: center;
-}*/
 
 .hero-content h1 {
     font-size: 2.8rem;
@@ -259,17 +232,49 @@ header {
     line-height: 2;
 }
 
-/* コンテンツエリア */
-.container {
-    padding: 100px 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+/* コンテナ：左右の要素を束ねる */
+.hero-container {
+    display: flex;
+    align-items: center;
+    /* ナビとテキストの上下中央を揃える */
+    justify-content: flex-start;
+    /* 左詰めで配置 */
+    gap: 80px;
+    /* ナビとテキストの間の距離 */
+    max-width: 1400px;
+    /* 広がりすぎないよう制限 */
+    width: 100%;
 }
 
-.container p {
-    font-size: 1.1rem;
-    color: #666;
+/* 左側：ナビゲーションの幅を固定 */
+.hero-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 280px;
+    /* ボタンの横幅を確保 */
+    flex-shrink: 0;
+    /* 画面が狭くなっても潰れないようにする */
+}
+
+/* 右側：テキストエリア */
+.hero-text-content {
+    flex-grow: 1;
+    /* 残りのスペースを埋める */
+}
+
+.maintenance-text {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+    /* 黒を30%だけ敷く */
+    backdrop-filter: blur(5px);
+    /* すりガラス効果 */
+    margin: 20px auto;
+    width: fit-content;
+    /* 文字の長さに幅を合わせる */
+    padding: 15px 40px;
+    border-radius: 50px;
+    /* カプセル型のボタン風に */
 }
 
 /* フッター */
